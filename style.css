@@ -1,0 +1,743 @@
+@font-face {
+    font-family: 'GrazingMace'; 
+    src: url('/public/GrazingMace.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Biro_Script'; 
+    src: url('/public/Biro_Script_reduced.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+:root {
+    --primary: #424242;
+    --middle: 0 auto;
+  }
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+*{
+    padding: 0; 
+    margin: 0;
+    font-family: 'GrazingMace', sans-serif; 
+    box-sizing: border-box;
+    
+
+}
+.container{
+    background-color: black;
+}
+
+.salam{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.salamImageContainer{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.salamTextContainer{
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.salamTxt{
+    color: antiquewhite;
+    font-size: clamp(5vw,20vw,20vw);
+    cursor: default;
+
+}
+.salamImg{
+    width: 100%;
+    height: 60%;
+    z-index: 1;
+}
+.nameContainer{
+    height: 100vh;
+    background-color: antiquewhite;
+}
+.name{
+    font-size: clamp(2vh,10vw,10vw);
+    color: black;
+    cursor: default;
+    text-align: center;
+    line-height: 100vh;
+    white-space: nowrap;
+}
+.jobTitleContainer{
+    height: 100vh;
+}
+.first{
+    background-color: rgb(82, 82, 29);
+    white-space: nowrap;
+    font-size: clamp(1vw,3vw,5vw);
+}
+.second{
+    background-color: brown;
+    font-size: clamp(5vw,5vw,20vw);
+}
+.jobTitle{
+    color: antiquewhite;
+    line-height: 100vh;
+    cursor: default;
+    text-align: center;
+}
+.projects{
+    display: flex;
+    flex-direction: column;
+    gap: 30vh;
+    padding: 0px 100px;
+}
+.projectsTitle{
+    font-size: 7vw;
+    color:white;
+    margin-top: 130px;
+    transform: scale(0.7);
+    transition: transform 0.3s ease-in-out;
+}
+
+.projectsTitle.show-animate {
+    transform: scale(1);
+}
+
+
+.project{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    height: 100vh;
+    overflow: hidden;
+}
+.project:nth-child(2n){
+    flex-direction: row-reverse;
+}
+.phone{
+    flex: 1;
+    width: 300px;
+    height: 600px;
+    position: relative;
+}
+.phoneScreen{
+    width: 264px;
+    height: 567px;
+    position: absolute;
+    top: 17px;
+    left: 18px;
+    border-radius: 25px;
+    overflow: scroll;
+}
+.phoneScreen::-webkit-scrollbar{
+    display: none;
+}
+.phoneFirst{
+    width: 100%;
+}
+.projectDetail{
+flex: 1;
+display: flex;
+flex-direction: column;
+gap: 50px;
+align-items: center;
+}
+.projectTitle{
+    font-size: 3vw;
+    color: #c0b8b8;
+}
+.projectDesc{
+    font-size: 20px;
+    color: #555;
+    text-align: justify;
+    line-height: 40px;
+}
+.projectButton{
+    text-decoration: none; 
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #555;
+    color: #555;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    
+}
+.laptop{
+    width: 600px;
+    height: 379px;
+    flex: 1;
+    position: relative;
+}
+.laptopScreen{
+    width: 451px;
+    height: 283px;
+    position: absolute;
+    top: 18px;
+    left: 68px;
+    overflow: scroll;
+}
+.laptopFirst{
+    width: 100%;
+}
+.laptopScreen::-webkit-scrollbar{
+    display: none;
+}
+.githubSection{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+
+}
+.githubText{
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+}
+.eyes{
+    width: 250px;
+    padding-block: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.eyes div{
+    position: relative;
+    width: 90px;
+    aspect-ratio: 1;
+    background: white;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.eyes div:before,
+.eyes div::after{
+    content: '';
+    position: absolute;
+    width: 116%;
+    height: 165%;
+    left: 50%;
+    animation: eyelid 5s ease-in-out infinite;
+    z-index: 1;
+}
+.eyes div:before{
+    top: 0;
+    border-radius: 0% 0% 40% 40%;
+    transform: translateY(var(--eyelid)) translateX(-50%);
+    border-bottom: 40px solid black;
+}
+
+.eyes div:after{
+bottom: 0;
+border-radius: 40% 40% 0% 0%;
+transform: translateY(var(--eyelid2)) translateX(-50%);
+border-top: 40px solid black;
+}
+
+.eyes i{
+    position: absolute;
+    width: 60px;
+    aspect-ratio: inherit;
+    background: black;
+    border-radius: inherit;
+}
+
+
+@keyframes eyelid {
+    0% {
+        --eyelid: -50%;
+        --eyelid2: 50%;
+    }
+    3% {
+        --eyelid: 0%;
+        --eyelid2: 0%;
+    }
+    6% {
+        --eyelid: -50%;
+        --eyelid2: 50%;
+    }
+    9%, 100% {
+        --eyelid: 0%;
+        --eyelid2: 0%;
+    }
+}
+
+.githubContainer {
+    position: relative;
+    width: 100%;
+    height: 600px; 
+
+}
+#light {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+    pointer-events: none;
+    z-index: 10;
+    
+
+}
+
+.githubLink {
+    position: absolute;
+    left: 70%;
+    top: 130%;
+    transform: translateY(-50%);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+.githubLink::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.githubLink img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0; 
+    z-index: 2;
+}
+
+.githubLink.visible {
+    
+    opacity: 1;
+}
+.githubLink:hover {
+opacity: 1;
+}
+
+.catPaws{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.catPaw{
+    position: absolute;
+    width: 35px;
+    animation: fadeIn 3s forwards;
+    opacity: 0;
+    display: none;
+}
+.leftPaw{
+    position: absolute;
+    left: 0;
+    top: 0;
+    rotate: 135deg;
+    animation-delay: 0s;
+}
+.rightPaw{
+    position:absolute;
+    left: 0;
+    top: 100px;
+    rotate: 135deg;
+    animation-delay: 1.5s;
+}
+.fishbone{
+    position: absolute;
+    width: 170px;
+    animation: fadeIn 3s forwards;
+    opacity: 0;
+    display: none;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#hintButton{
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #555;
+    color: #ffffff;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.swing {
+    width: 2px;
+    height: 200px;
+    background-color: #d3d3d3;
+    display: block;
+    margin: var(--middle);
+    transform-origin: 100% 0%;
+    animation: swing 7.5s 0s infinite ease-in-out;
+    position: relative;
+    left: 530px;
+    top: 140px;
+  }
+
+  .ball {
+    width: 150px;
+    height: 150px;
+    background-image: url('./public/img/woolball.png');
+    background-size: cover;
+    position: relative;
+    top: 146px;
+    left: -74px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+  @keyframes swing {
+    0%, 100% {
+      transform: rotate(65deg);
+    }
+    50% {
+      transform: rotate(-65deg);
+    }
+  }
+
+  .tail {
+    width: 300px; 
+    height: 300px; 
+    background-image: url('./public/img/tail.png'); 
+    background-size: cover;
+    position: absolute;
+    top: -65px; 
+    left: 723px; 
+    transform-origin: top left;
+
+}
+
+@keyframes wag-tail {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(1deg);
+    }
+    40% {
+        transform: rotate(-1deg);
+    }
+    60% {
+        transform: rotate(2deg);
+    }
+    80% {
+        transform: rotate(-2deg);
+    }
+}
+
+.animate-tail {
+    animation: wag-tail 0.3s infinite ease-in-out;
+}
+
+.blackboard {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;
+    height: 40vh; 
+    min-width: 40em;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center;
+    background-image: 
+        radial-gradient(circle at left 30%, 
+            rgba(34, 34, 34, 0.2), 
+            rgba(34, 34, 34, 0.2) 80px, 
+            rgba(34, 34, 34, 0.3) 100px, 
+            rgba(51, 51, 51, 0.3) 160px, 
+            rgba(51, 51, 51, 0.3)), 
+        linear-gradient(215deg, transparent, transparent 100px, 
+            rgba(34,34,34,0.4) 260px, rgba(34,34,34,0.4) 320px, transparent), 
+        radial-gradient(circle at right, rgba(17,17,17,0.4), rgba(51, 51, 51, 0.5)),
+        linear-gradient(0deg, rgba(80,80,80,.5) , rgba(80,80,80,.2) 70% );
+    background-color: rgba(51, 51, 51, 0.8);
+    border: tan solid 12px;
+    border-top: #bda27e solid 12px;
+    border-left: #b19876 solid 12px;
+    border-bottom: #c9ad86 solid 12px;
+    box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 
+        0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 
+        3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 1s ease-in-out, top 1s ease-in-out;
+    visibility: hidden;
+    z-index: 10;
+}
+
+
+@keyframes drop-down {
+    0% {
+        top: 10%;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    100% {
+        top: 20%;
+    }
+}
+
+.blackboard.drop {
+    animation: drop-down 2s forwards;
+    visibility: visible;
+    pointer-events: auto; 
+}
+
+.blackboard * {
+    font-family: 'Biro_Script', sans-serif;
+    font-weight: normal;
+    font-size: 32pt;
+    letter-spacing: 2px;
+}
+
+.blackboard .text1 {
+    margin-bottom: auto; 
+    color: white;
+    box-sizing: border-box;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem; 
+    margin-bottom: 1rem; 
+}
+
+.radio-wrapper-62 input[type="radio"] {
+    visibility: hidden;
+    display: none;
+}
+
+.radio-wrapper-62 *,
+.radio-wrapper-62 ::after,
+.radio-wrapper-62 ::before {
+    box-sizing: border-box;
+}
+
+.radio-wrapper-62 {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.radio-wrapper-62 .radio {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    opacity: 0;
+}
+
+.radio-wrapper-62 .label svg {
+    vertical-align: middle;
+}
+
+.radio-wrapper-62 .path1 {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    transition: .5s all;
+}
+
+.radio-wrapper-62 .radio:checked + label svg g path {
+    stroke-dashoffset: 0;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: 'Biro_Script', sans-serif;
+    font-size: 32pt;
+    letter-spacing: 2px;
+}
+
+input[type="radio"] {
+    margin-right: 1rem;
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+}
+@keyframes slide-up {
+    0% {
+        top: 20%;
+        visibility: visible;
+        pointer-events: auto; 
+    }
+    100% {
+        top: -50%;
+        visibility: hidden;
+        pointer-events: auto; 
+    }
+}
+
+.blackboard.hide {
+    animation: slide-up 2s forwards;
+
+}
+@media screen and (max-width:1024px) {
+    .name {
+        text-align: left;
+        padding-left: 10px;
+    }
+    .projects{
+      padding: 0 30px;
+      text-align: center;
+    }
+  
+    .project{
+      flex-direction: column;
+      height: max-content;
+      gap: 20px;
+    }
+    .project:nth-child(2n){
+      flex-direction: column;
+    }
+  
+    .phone,.laptop{
+        transform: none !important;
+      }
+
+    .githubContainer{
+        margin-top: 200px;
+    }
+    .swing {
+        left: 280px;
+        top: 100px;
+    }
+    .tail{
+        left: 173px;
+        top: -103px;
+    }
+    .blackboard {
+        width: 60vw;
+        height: 30vh;
+        min-width: 20em;
+        padding: 10px;
+    }
+
+    .blackboard * {
+        font-size: 24pt;
+        letter-spacing: 1px;
+    }
+
+    .radio-container {
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    label {
+        font-size: 24pt;
+        letter-spacing: 1px;
+    }
+
+    .close-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
+
+
+
+  }
+  @media screen and (max-width: 768px) {
+    .salamTxt {
+        font-size: clamp(10vw, 15vw, 20vw);
+    }
+
+    .name {
+        text-align: left;
+        padding-left: 10px;
+    }
+    .phone,.laptop{
+        transform: none !important;
+      }
+
+    .projects {
+        padding: 0 20px;
+    }
+
+    .project {
+        gap: 50px;
+    }
+
+    .githubContainer{
+        margin-top: 200px;
+    }
+
+    .swing {
+        left: 280px;
+        top: 100px;
+    }
+    .tail{
+        left: 173px;
+        top: -103px;
+    }
+    .blackboard {
+        width: 60vw;
+        height: 30vh;
+        min-width: 20em;
+        padding: 10px;
+    }
+
+    .blackboard * {
+        font-size: 24pt;
+        letter-spacing: 1px;
+    }
+
+    .radio-container {
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    label {
+        font-size: 24pt;
+        letter-spacing: 1px;
+    }
+
+    .close-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
+
+}
