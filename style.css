@@ -641,11 +641,11 @@ input[type="radio"] {
         margin-top: 200px;
     }
     .swing {
-        left: 224px;
+        left: 150px;
         top: 100px;
     }
     .tail{
-        left: 109px;
+        left: 60px;
         top: -103px;
     }
     .blackboard {
@@ -678,67 +678,4 @@ input[type="radio"] {
 
   }
   
-  @media screen and (max-width:430px) {
-    .name {
-        text-align: left;
-        padding-left: 10px;
-    }
-    .projects{
-      padding: 0 30px;
-      text-align: center;
-    }
-  
-    .project{
-      flex-direction: column;
-      height: max-content;
-      gap: 20px;
-    }
-    .project:nth-child(2n){
-      flex-direction: column;
-    }
-  
-    .phone,.laptop{
-        transform: none !important;
-      }
-
-    .githubContainer{
-        margin-top: 200px;
-    }
-    .swing {
-        left: 224px;
-        top: 100px;
-    }
-    .tail{
-        left: 109px;
-        top: -103px;
-    }
-    .blackboard {
-        width: 60vw;
-        height: 30vh;
-        min-width: 20em;
-        padding: 10px;
-    }
-
-    .blackboard * {
-        font-size: 24pt;
-        letter-spacing: 1px;
-    }
-
-    .radio-container {
-        gap: 1rem;
-        margin-bottom: 0.5rem;
-    }
-
-    label {
-        font-size: 24pt;
-        letter-spacing: 1px;
-    }
-
-    .close-btn {
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
-    }
-
-  }
   
