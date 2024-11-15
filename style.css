@@ -69,10 +69,10 @@
     background-color: antiquewhite;
 }
 .name{
-    font-size: clamp(2vh,10vw,10vw);
+    font-size: clamp(2vh,6vw,6vw);
     color: black;
     cursor: default;
-    text-align: center;
+    text-align: left;
     line-height: 100vh;
     white-space: nowrap;
 }
@@ -641,11 +641,11 @@ input[type="radio"] {
         margin-top: 200px;
     }
     .swing {
-        left: 280px;
+        left: 224px;
         top: 100px;
     }
     .tail{
-        left: 173px;
+        left: 109px;
         top: -103px;
     }
     .blackboard {
@@ -675,69 +675,6 @@ input[type="radio"] {
         height: 20px;
         font-size: 12px;
     }
-
-
 
   }
-  @media screen and (max-width: 768px) {
-    .salamTxt {
-        font-size: clamp(10vw, 15vw, 20vw);
-    }
-
-    .name {
-        text-align: left;
-        padding-left: 10px;
-    }
-    .phone,.laptop{
-        transform: none !important;
-      }
-
-    .projects {
-        padding: 0 20px;
-    }
-
-    .project {
-        gap: 50px;
-    }
-
-    .githubContainer{
-        margin-top: 200px;
-    }
-
-    .swing {
-        left: 280px;
-        top: 100px;
-    }
-    .tail{
-        left: 173px;
-        top: -103px;
-    }
-    .blackboard {
-        width: 60vw;
-        height: 30vh;
-        min-width: 20em;
-        padding: 10px;
-    }
-
-    .blackboard * {
-        font-size: 24pt;
-        letter-spacing: 1px;
-    }
-
-    .radio-container {
-        gap: 1rem;
-        margin-bottom: 0.5rem;
-    }
-
-    label {
-        font-size: 24pt;
-        letter-spacing: 1px;
-    }
-
-    .close-btn {
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
-    }
-
-}
+  
