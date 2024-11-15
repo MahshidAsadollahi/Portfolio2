@@ -43,7 +43,7 @@ document.addEventListener('mousemove', (e) => {
     });
 
     const light = document.getElementById('light');
-    light.style.top = `${e.pageY - 100}px`;
+    light.style.top = `${e.pageY - 200}px`;
     light.style.left = `${e.pageX - 100}px`;
 
     const githubLink = document.querySelector('.githubLink');
@@ -119,22 +119,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('scroll', () => {
-    let offsetY = window.scrollY
-     salamTextContainer.style.transform = `translateY(${offsetY * 0.5}px)`;
-     nameContainer.style.transform = `translateX(${offsetY * 0.3}px)`;
-     jobTitleContainers[0].style.backgroundPositionY = `${offsetY * 0.5}px`;
-     jobTitleContainers[1].style.backgroundPositionY = `${-offsetY * 0.5}px`;
-     jobTitles[0].style.transform = `translateX(calc(200vh - ${offsetY}px))`;
-     jobTitles[1].style.transform = `translateX(calc(-300vh + ${offsetY}px))`;
+    let offsetY = window.scrollY;
+    salamTextContainer.style.transform = `translateY(${offsetY * 0.5}px)`;
+    nameContainer.style.transform = `translateX(${offsetY * 0.3 - 50}px)`;
+    jobTitleContainers[0].style.backgroundPositionY = `${offsetY * 0.5}px`;
+    jobTitleContainers[1].style.backgroundPositionY = `${-offsetY * 0.5}px`;
+    jobTitles[0].style.transform = `translateX(calc(200vh - ${offsetY}px))`;
+    jobTitles[1].style.transform = `translateX(calc(-300vh + ${offsetY}px))`;
 
-     let top = window.scrollY;
-     let offset = projects.offsetTop - 600;
-     let height = projects.offsetHeight;
- 
-     if (top >= offset && top < offset + height) {
-         projectsTitle.classList.add('show-animate');
-     } else {
-         projectsTitle.classList.remove('show-animate');
-     }
- });
+    let top = window.scrollY;
+    let offset = projects.offsetTop - 600;
+    let height = projects.offsetHeight;
 
+    if (top >= offset && top < offset + height) {
+        projectsTitle.classList.add('show-animate');
+    } else {
+        projectsTitle.classList.remove('show-animate');
+    }
+});
