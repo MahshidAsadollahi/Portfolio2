@@ -12,7 +12,7 @@ document.getElementById('hintButton').addEventListener('click', function() {
     });
 });
 
-document.addEventListener('mousemove', (e) => {
+function handleMove(e) {
     const githubContainer = document.querySelector('.githubContainer');
     if (!githubContainer) return;
 
@@ -27,6 +27,9 @@ document.addEventListener('mousemove', (e) => {
     const containerRect = eyesContainer.getBoundingClientRect();
     const containerCenterX = containerRect.left + containerRect.width / 2;
     const containerCenterY = containerRect.top + containerRect.height / 2;
+
+    const clientX = e.clientX || e.touches[0].clientX;
+    const clientY = e.clientY || e.touches[0].clientY;
 
     const angle = Math.atan2(e.clientY - containerCenterY, e.clientX - containerCenterX);
     const distance = Math.min(
@@ -43,8 +46,21 @@ document.addEventListener('mousemove', (e) => {
     });
 
     const light = document.getElementById('light');
-    light.style.top = `${e.pageY - 200}px`;
-    light.style.left = `${e.pageX - 100}px`;
+    const lightWidth = light.offsetWidth;
+    const lightHeight = light.offsetHeight;
+    const pageWidth = document.documentElement.clientWidth;
+    const pageHeight = document.documentElement.clientHeight;
+
+    let lightX = e.pageX - lightWidth / 2;
+    let lightY = e.pageY - lightHeight / 2;
+
+    if (lightX < 0) lightX = 0;
+    if (lightX + lightWidth > pageWidth) lightX = pageWidth - lightWidth;
+    if (lightY < 0) lightY = 0;
+    if (lightY + lightHeight > pageHeight) lightY = pageHeight - lightHeight;
+
+    light.style.top = `${lightY}px`;
+    light.style.left = `${lightX}px`;
 
     const githubLink = document.querySelector('.githubLink');
     const linkRect = githubLink.getBoundingClientRect();
@@ -66,8 +82,9 @@ document.addEventListener('mousemove', (e) => {
     } else {
         githubLink.classList.remove('visible');
     }
-});
-
+}
+document.addEventListener('mousemove', handleMove);
+document.addEventListener('touchmove', handleMove);
 document.getElementById('woolBall').addEventListener('click', function() {
     const blackboard = document.getElementById('blackboard');
     blackboard.classList.add('drop');

@@ -130,7 +130,6 @@
     width: 300px;
     height: 600px;
     position: relative;
-    overflow: hidden;
 }
 .phoneScreen{
     width: 264px;
@@ -138,11 +137,8 @@
     position: absolute;
     top: 17px;
     left: 18px;
-    border-radius: 25px;
+    border-radius: 28px;
     overflow: scroll;
-    margin: 0;
-    padding: 0; 
-    box-sizing: border-box;
 }
 .phoneScreen::-webkit-scrollbar{
     display: none;
@@ -192,6 +188,7 @@ align-items: center;
     left: 68px;
     overflow: scroll;
 }
+
 .laptopFirst{
     width: 100%;
 }
@@ -629,15 +626,27 @@ input[type="radio"] {
     .project{
       flex-direction: column;
       height: max-content;
-      gap: 20px;
     }
     .project:nth-child(2n){
       flex-direction: column;
     }
   
-    .phone,.laptop{
+    .phone, .laptop{
         transform: none !important;
       }
+  
+    .laptop img{
+      width: 60%;
+    }
+
+    .laptopScreen{
+      width: 76%;
+      height: 77%;
+      top: 10px;
+      left: 68px;
+    }
+
+
 
     .githubContainer{
         margin-top: 200px;
@@ -646,6 +655,14 @@ input[type="radio"] {
         left: 220px;
         top: 100px;
     }
+    @keyframes swing {
+        0%, 100% {
+          transform: rotate(30deg);
+        }
+        50% {
+          transform: rotate(-20deg);
+        }
+      }
     .tail{
         left: 110px;
         top: -103px;
@@ -677,7 +694,17 @@ input[type="radio"] {
         height: 20px;
         font-size: 12px;
     }
-
+    .githubLink {
+        left: 50%;
+        top: 130%;
+    }
+    .fishbone, .catPaw , .catPaws, .leftPaw, .rightPaw {  
+        display: none;
+    }
+    #hintButton{
+        display: none;
+    }
   }
+  
   
   
