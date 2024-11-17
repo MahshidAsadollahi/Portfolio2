@@ -45,34 +45,17 @@ function handleMove(e) {
         eyeBall.style.transform = `translate(${moveX}px, ${moveY}px)`;
     });
 
-    const light = document.getElementById('light');
-    const lightWidth = light.offsetWidth;
-    const lightHeight = light.offsetHeight;
-    const pageWidth = document.documentElement.clientWidth;
-    const pageHeight = document.documentElement.clientHeight;
-
-    let lightX = e.pageX - lightWidth / 2;
-    let lightY = e.pageY - lightHeight / 2;
-
-    if (lightX < 0) lightX = 0;
-    if (lightX + lightWidth > pageWidth) lightX = pageWidth - lightWidth;
-    if (lightY < 0) lightY = 0;
-    if (lightY + lightHeight > pageHeight) lightY = pageHeight - lightHeight;
-
-    light.style.top = `${lightY}px`;
-    light.style.left = `${lightX}px`;
-
     const githubLink = document.querySelector('.githubLink');
     const linkRect = githubLink.getBoundingClientRect();
-    const lightRect = light.getBoundingClientRect();
+    const eyesRect = eyesContainer.getBoundingClientRect();
 
-    const lightCenterX = lightRect.left + lightRect.width / 2;
-    const lightCenterY = lightRect.top + lightRect.height / 2;
+    const eyesCenterX = eyesRect.left + eyesRect.width / 2;
+    const eyesCenterY = eyesRect.top + eyesRect.height / 2;
     const linkCenterX = linkRect.left + linkRect.width / 2;
     const linkCenterY = linkRect.top + linkRect.height / 2;
 
     const distanceBetweenCenters = Math.sqrt(
-        Math.pow(lightCenterX - linkCenterX, 2) + Math.pow(lightCenterY - linkCenterY, 2)
+        Math.pow(eyesCenterX - linkCenterX, 2) + Math.pow(eyesCenterY - linkCenterY, 2)
     );
 
     const threshold = 50;

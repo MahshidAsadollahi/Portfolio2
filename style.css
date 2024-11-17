@@ -10,6 +10,8 @@
     font-weight: normal;
     font-style: normal;
 }
+
+
 :root {
     --primary: #424242;
     --middle: 0 auto;
@@ -19,7 +21,6 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    box-sizing: border-box;
 }
 
 *, *::before, *::after {
@@ -99,7 +100,7 @@
 .projects{
     display: flex;
     flex-direction: column;
-    gap: 30vh;
+    gap: 10vh;
     padding: 0px 100px;
 }
 .projectsTitle{
@@ -150,7 +151,7 @@
 flex: 1;
 display: flex;
 flex-direction: column;
-gap: 50px;
+gap: 30px;
 align-items: center;
 }
 .projectTitle{
@@ -286,16 +287,6 @@ border-top: 40px solid black;
     height: 600px; 
     overflow: hidden;
 }
-#light {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
-    pointer-events: none;
-    z-index: 10;
-    
-
-}
 
 .githubLink {
     position: absolute;
@@ -400,8 +391,8 @@ opacity: 1;
     transform-origin: 100% 0%;
     animation: swing 7.5s 0s infinite ease-in-out;
     position: relative;
-    left: 530px;
-    top: 140px;
+    left: 34vw;
+    top: 9vw;
   }
 
   .ball {
@@ -431,8 +422,8 @@ opacity: 1;
     background-image: url('./public/img/tail.png'); 
     background-size: cover;
     position: absolute;
-    top: -65px; 
-    left: 723px; 
+    top: -4vw; 
+    left: 48vw; 
     transform-origin: top left;
 
 }
@@ -645,15 +636,14 @@ input[type="radio"] {
       top: 10px;
       left: 68px;
     }
-
-
-
     .githubContainer{
         margin-top: 200px;
+        overflow-x: hidden;
+
     }
     .swing {
-        left: 220px;
-        top: 100px;
+        left: 57vw;
+        top: 26vw;
     }
     @keyframes swing {
         0%, 100% {
@@ -664,8 +654,8 @@ input[type="radio"] {
         }
       }
     .tail{
-        left: 110px;
-        top: -103px;
+        left: 29vw;
+        top: -27vw;
     }
     .blackboard {
         width: 60vw;
@@ -694,17 +684,42 @@ input[type="radio"] {
         height: 20px;
         font-size: 12px;
     }
+
     .githubLink {
-        left: 50%;
-        top: 130%;
-    }
-    .fishbone, .catPaw , .catPaws, .leftPaw, .rightPaw {  
-        display: none;
+        left: 40%;
+        top: 110%;
     }
     #hintButton{
-        display: none;
+    display: none;
     }
   }
+
+
+
+/* iPhone 15 Pro Max */
+@media only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
+    .tail {
+        left: 33vw;
+        top: -23vw;
+    }
+    .swing{
+        left: 58vw;
+        top: 24vw;
+    }
+}
+
+/* iPhone 13 Pro Max */
+@media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+    .tail {
+        left: 33vw;
+        top: -23vw;
+    }
+      .swing{
+        left: 58vw;
+        top: 24vw;
+    }
+}
+
   
   
   
