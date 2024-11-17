@@ -31,7 +31,8 @@
 }
 .container{
     background-color: black;
-    overflow: hidden;
+    overflow: hidden; 
+    touch-action: pan-y;
 }
 
 .salam{
@@ -280,7 +281,32 @@ border-top: 40px solid black;
         --eyelid2: 0%;
     }
 }
+#scratchCard {
+    position: relative;
+    z-index: 1;
+    cursor: crosshair;
+    margin-top: 10px;
+}
 
+#scratchText {
+    position: absolute;
+    top: 346px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: black;
+    background-color: white;
+    z-index: 0;
+}
+
+.hidden {
+    display: none;
+}
 .githubContainer {
     position: relative;
     width: 100%;
@@ -288,90 +314,7 @@ border-top: 40px solid black;
     overflow: hidden;
 }
 
-.githubLink {
-    position: absolute;
-    left: 70%;
-    top: 130%;
-    transform: translateY(-50%);
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-}
-.githubLink::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-.githubLink img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    bottom: 0; 
-    z-index: 2;
-}
 
-.githubLink.visible {
-    
-    opacity: 1;
-}
-.githubLink:hover {
-opacity: 1;
-}
-
-.catPaws{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-.catPaw{
-    position: absolute;
-    width: 35px;
-    animation: fadeIn 3s forwards;
-    opacity: 0;
-    display: none;
-}
-.leftPaw{
-    position: absolute;
-    left: 0;
-    top: 0;
-    rotate: 135deg;
-    animation-delay: 0s;
-}
-.rightPaw{
-    position:absolute;
-    left: 0;
-    top: 100px;
-    rotate: 135deg;
-    animation-delay: 1.5s;
-}
-.fishbone{
-    position: absolute;
-    width: 170px;
-    animation: fadeIn 3s forwards;
-    opacity: 0;
-    display: none;
-}
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 #hintButton{
     padding: 10px 20px;
     background-color: transparent;
@@ -684,14 +627,10 @@ input[type="radio"] {
         height: 20px;
         font-size: 12px;
     }
+    #scratchText{
+        top: 383px;
+    }
 
-    .githubLink {
-        left: 40%;
-        top: 110%;
-    }
-    #hintButton{
-    display: none;
-    }
   }
 
 
