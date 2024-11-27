@@ -5,11 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const jobTitles = document.querySelectorAll(".jobTitle");
     const projects = document.querySelector('.projects');
     const projectsTitle = document.querySelector('.projectsTitle');
-    const blackboard = document.getElementById('blackboard');
-    const woolBall = document.getElementById('woolBall');
-    const closeButton = document.querySelector('.close-btn');
     const salamImg = document.getElementById('salamImg');
-    const tail = document.getElementById('tail');
+    const hintButton = document.getElementById('hintButton');
+    const hintMessage = document.getElementById('hintMessage');
 
     function handleMove(e) {
         const githubContainer = document.querySelector('.githubContainer');
@@ -41,24 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function resetRadioButtons() {
-        document.querySelectorAll('input[name="option"]').forEach(radio => {
-            radio.checked = false;
-        });
-        tail.classList.remove('animate-tail');
-    }
-
-    function handleRadioChange() {
-        const salamImg = document.getElementById('salamImg');
-        if (this.value === 'yes') {
-            salamImg.src = './public/img/happydog.png';
-            tail.classList.add('animate-tail');
-        } else if (this.value === 'no') {
-            salamImg.src = './public/img/saddog.png';
-            tail.classList.remove('animate-tail');
-        }
-    }
-
     function handleScroll() {
         const offsetY = window.scrollY;
         salamTextContainer.style.transform = `translateY(${offsetY * 0.5}px)`;
@@ -78,35 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousemove', handleMove);
     document.addEventListener('touchmove', handleMove);
 
-    woolBall.addEventListener('click', () => {
-        blackboard.classList.add('drop');
-    });
-
-    document.querySelectorAll('input[name="option"]').forEach(radio => {
-        radio.addEventListener('change', handleRadioChange);
-    });
-
-    closeButton.addEventListener('click', () => {
-        blackboard.classList.add('hide');
-        salamImg.src = './public/img/dogline.png';
-        resetRadioButtons();
-    });
-
-    blackboard.addEventListener('animationend', () => {
-        if (blackboard.classList.contains('hide')) {
-            blackboard.classList.remove('drop');
-        }
-    });
-
-    woolBall.addEventListener('click', () => {
-        blackboard.classList.remove('hide');
-        blackboard.classList.add('drop');
-        blackboard.style.visibility = 'visible';
-    });
-
     window.addEventListener('scroll', handleScroll);
 
-    // Scratch card effect
+    let isHappyDog = false;
+    salamImg.addEventListener('click', () => {
+        if (isHappyDog) {
+            salamImg.src = './public/img/dogline.png';
+        } else {
+            salamImg.src = './public/img/happydog.png';
+        }
+        isHappyDog = !isHappyDog;
+    });
+
+
+    hintButton.addEventListener('click', () => {
+        hintMessage.classList.remove('hidden');
+    });
+
+
     const canvas = document.getElementById('scratchCard');
     const ctx = canvas.getContext('2d');
     const scratchText = document.getElementById('scratchText');
@@ -137,42 +106,42 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isDrawing) return;
 
         const rect = canvas.getBoundingClientRect();
-const x = (e.clientX || e.touches[0].clientX) - rect.left;
-const y = (e.clientY || e.touches[0].clientY) - rect.top;
-ctx.globalCompositeOperation = 'destination-out';
-ctx.beginPath();
-ctx.arc(x, y, 10, 0, Math.PI * 2);
-ctx.fill();
-}
+        const x = (e.clientX || e.touches[0].clientX) - rect.left;
+        const y = (e.clientY || e.touches[0].clientY) - rect.top;
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, Math.PI * 2);
+        ctx.fill();
+    }
 
-canvas.addEventListener('mousedown', startDrawing);
-canvas.addEventListener('mouseup', stopDrawing);
-canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mousemove', draw);
 
-canvas.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    startDrawing();
-});
-canvas.addEventListener('touchend', (e) => {
-    e.preventDefault();
-    stopDrawing();
-});
-canvas.addEventListener('touchmove', (e) => {
-    e.preventDefault();
-    draw(e);
-});
+    canvas.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        startDrawing();
+    });
+    canvas.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        stopDrawing();
+    });
+    canvas.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        draw(e);
+    });
 
-function checkScratchCompletion() {
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    let scratchedPixels = 0;
-    for (let i = 0; i < imageData.data.length; i += 4) {
-        if (imageData.data[i + 3] === 0) {
-            scratchedPixels++;
+    function checkScratchCompletion() {
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let scratchedPixels = 0;
+        for (let i = 0; i < imageData.data.length; i += 4) {
+            if (imageData.data[i + 3] === 0) {
+                scratchedPixels++;
+            }
+        }
+        const scratchedPercentage = (scratchedPixels / (canvas.width * canvas.height)) * 100;
+        if (scratchedPercentage > 50) {
+            scratchText.classList.remove('hidden');
         }
     }
-    const scratchedPercentage = (scratchedPixels / (canvas.width * canvas.height)) * 100;
-    if (scratchedPercentage > 50) {
-        scratchText.classList.remove('hidden');
-    }
-}
 });

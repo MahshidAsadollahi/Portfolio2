@@ -33,6 +33,7 @@
     background-color: black;
     overflow: hidden; 
     touch-action: pan-y;
+    position: relative;
 }
 
 .salam{
@@ -48,6 +49,7 @@
     flex: 1;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .salamTextContainer{
@@ -67,6 +69,7 @@
     width: 100%;
     height: 60%;
     z-index: 1;
+    cursor: pointer;
 }
 .nameContainer{
     height: 100vh;
@@ -325,231 +328,20 @@ border-top: 40px solid black;
     overflow: hidden;
 }
 
-.swing {
-    width: 2px;
-    height: 200px;
-    background-color: #d3d3d3;
-    display: block;
-    margin: var(--middle);
-    transform-origin: 100% 0%;
-    animation: swing 7.5s 0s infinite ease-in-out;
-    position: relative;
-    left: 34vw;
-    top: 9vw;
-  }
-
-  .ball {
-    width: 150px;
-    height: 150px;
-    background-image: url('./public/img/woolball.png');
-    background-size: cover;
-    position: relative;
-    top: 146px;
-    left: -74px;
-    margin: 0 auto;
-    cursor: pointer;
-  }
-
-  @keyframes swing {
-    0%, 100% {
-      transform: rotate(65deg);
-    }
-    50% {
-      transform: rotate(-65deg);
-    }
-  }
-
-  .tail {
-    width: 300px; 
-    height: 300px; 
-    background-image: url('./public/img/tail.png'); 
-    background-size: cover;
-    position: absolute;
-    top: -4vw; 
-    left: 48vw; 
-    transform-origin: top left;
-
-}
-
-@keyframes wag-tail {
-    0%, 100% {
-        transform: rotate(0deg);
-    }
-    20% {
-        transform: rotate(1deg);
-    }
-    40% {
-        transform: rotate(-1deg);
-    }
-    60% {
-        transform: rotate(2deg);
-    }
-    80% {
-        transform: rotate(-2deg);
-    }
-}
-
-.animate-tail {
-    animation: wag-tail 0.3s infinite ease-in-out;
-}
-
-.blackboard {
-    position: absolute;
-    top: 10%;
+#hintMessage {
+    position: absolute; 
+    top: 470px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60vw;
-    height: 40vh; 
-    min-width: 40em;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; 
-    align-items: center;
-    background-image: 
-        radial-gradient(circle at left 30%, 
-            rgba(34, 34, 34, 0.2), 
-            rgba(34, 34, 34, 0.2) 80px, 
-            rgba(34, 34, 34, 0.3) 100px, 
-            rgba(51, 51, 51, 0.3) 160px, 
-            rgba(51, 51, 51, 0.3)), 
-        linear-gradient(215deg, transparent, transparent 100px, 
-            rgba(34,34,34,0.4) 260px, rgba(34,34,34,0.4) 320px, transparent), 
-        radial-gradient(circle at right, rgba(17,17,17,0.4), rgba(51, 51, 51, 0.5)),
-        linear-gradient(0deg, rgba(80,80,80,.5) , rgba(80,80,80,.2) 70% );
-    background-color: rgba(51, 51, 51, 0.8);
-    border: tan solid 12px;
-    border-top: #bda27e solid 12px;
-    border-left: #b19876 solid 12px;
-    border-bottom: #c9ad86 solid 12px;
-    box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 
-        0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 
-        3px 4px 8px 5px rgba(0, 0, 0, 0.5);
-    transition: transform 1s ease-in-out, top 1s ease-in-out;
-    visibility: hidden;
-    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px; 
+    border-radius: 5px; 
+    color: #fff; 
+    z-index: 1000; 
 }
 
 
-@keyframes drop-down {
-    0% {
-        top: 10%;
-        visibility: visible;
-        pointer-events: auto;
-    }
-    100% {
-        top: 20%;
-    }
-}
 
-.blackboard.drop {
-    animation: drop-down 2s forwards;
-    visibility: visible;
-    pointer-events: auto; 
-}
-
-.blackboard * {
-    font-family: 'Biro_Script', sans-serif;
-    font-weight: normal;
-    font-size: 32pt;
-    letter-spacing: 2px;
-}
-
-.blackboard .text1 {
-    margin-bottom: auto; 
-    color: white;
-    box-sizing: border-box;
-}
-
-.radio-container {
-    display: flex;
-    align-items: center;
-    gap: 2rem; 
-    margin-bottom: 1rem; 
-}
-
-.radio-wrapper-62 input[type="radio"] {
-    visibility: hidden;
-    display: none;
-}
-
-.radio-wrapper-62 *,
-.radio-wrapper-62 ::after,
-.radio-wrapper-62 ::before {
-    box-sizing: border-box;
-}
-
-.radio-wrapper-62 {
-    position: relative;
-    display: block;
-    overflow: hidden;
-}
-
-.radio-wrapper-62 .radio {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    opacity: 0;
-}
-
-.radio-wrapper-62 .label svg {
-    vertical-align: middle;
-}
-
-.radio-wrapper-62 .path1 {
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-    transition: .5s all;
-}
-
-.radio-wrapper-62 .radio:checked + label svg g path {
-    stroke-dashoffset: 0;
-}
-
-label {
-    display: flex;
-    align-items: center;
-    color: white;
-    font-family: 'Biro_Script', sans-serif;
-    font-size: 32pt;
-    letter-spacing: 2px;
-}
-
-input[type="radio"] {
-    margin-right: 1rem;
-}
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 10;
-}
-@keyframes slide-up {
-    0% {
-        top: 20%;
-        visibility: visible;
-        pointer-events: auto; 
-    }
-    100% {
-        top: -50%;
-        visibility: hidden;
-        pointer-events: auto; 
-    }
-}
-
-.blackboard.hide {
-    animation: slide-up 2s forwards;
-
-}
 @media screen and (max-width:1024px) {
 
     .projects{
@@ -584,80 +376,11 @@ input[type="radio"] {
         overflow-x: hidden;
 
     }
-    .swing {
-        left: 57vw;
-        top: 26vw;
-    }
-    @keyframes swing {
-        0%, 100% {
-          transform: rotate(30deg);
-        }
-        50% {
-          transform: rotate(-20deg);
-        }
-      }
-    .tail{
-        left: 29vw;
-        top: -27vw;
-    }
-    .blackboard {
-        width: 60vw;
-        height: 30vh;
-        min-width: 20em;
-        padding: 10px;
-    }
-
-    .blackboard * {
-        font-size: 24pt;
-        letter-spacing: 1px;
-    }
-
-    .radio-container {
-        gap: 1rem;
-        margin-bottom: 0.5rem;
-    }
-
-    label {
-        font-size: 24pt;
-        letter-spacing: 1px;
-    }
-
-    .close-btn {
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
-    }
     #scratchText{
         top: 383px;
     }
 
   }
-
-
-
-/* iPhone 15 Pro Max */
-@media only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
-    .tail {
-        left: 33vw;
-        top: -23vw;
-    }
-    .swing{
-        left: 58vw;
-        top: 24vw;
-    }
-}
-
-/* iPhone 13 Pro Max */
-@media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
-    .tail {
-        left: 33vw;
-        top: -23vw;
-    }
-      .swing{
-        left: 58vw;
-        top: 24vw;
-    }
-}
 
   
   
